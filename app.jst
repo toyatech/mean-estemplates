@@ -1,0 +1,22 @@
+'use strict';
+
+/*
+ * Defining the Package
+ */
+var Module = require('meanio').Module;
+
+var <%= moduleNameIdentifier %> = new Module('<%= moduleNameLiteral %>');
+
+/*
+ * All MEAN packages require registration
+ * Dependeny injection is used to define required modules
+ */
+<%= moduleNameIdentifier %>.register(function(app, auth, database) {
+
+  //We enable routing. By default the Package Object is passwd to the routes
+  <%= moduleNameIdentifier %>.routes(app, auth, database);
+
+  <%= moduleNameIdentifier %>.aggregateAssets('css', '<%= moduleNameLiteral %>.css');
+
+  return <%= moduleNameIdentifier %>;
+});
